@@ -8,14 +8,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.concurrent.TimeUnit;
 
 @Component
 public class RedissonLockService implements DistributedLockFactoryService {
     private final Logger logger = LoggerFactory.getLogger(RedissonLockService.class);
 
-    @Resource
+    @Autowired
     private RedissonClient redissonClient;
 
 

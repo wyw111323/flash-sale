@@ -14,7 +14,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,9 +31,9 @@ import static com.actionworks.flashsale.domain.exception.DomainErrorCode.TOTAL_S
 public class BucketsDomainServiceImpl implements BucketsDomainService {
     private static final Logger logger = LoggerFactory.getLogger(BucketsDomainServiceImpl.class);
 
-    @Resource
+    @Autowired
     private BucketsRepository bucketsRepository;
-    @Resource
+    @Autowired
     private DomainEventPublisher domainEventPublisher;
 
     @Override

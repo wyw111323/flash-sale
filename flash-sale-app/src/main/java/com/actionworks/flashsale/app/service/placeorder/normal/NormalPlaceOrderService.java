@@ -23,7 +23,7 @@ import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static com.actionworks.flashsale.app.exception.AppErrorCode.INVALID_PARAMS;
 import static com.actionworks.flashsale.app.exception.AppErrorCode.ITEM_NOT_FOUND;
@@ -34,17 +34,17 @@ import static com.actionworks.flashsale.app.model.builder.FlashOrderAppBuilder.t
 @Conditional(MultiPlaceOrderTypesCondition.class)
 public class NormalPlaceOrderService implements PlaceOrderService {
     private static final Logger logger = LoggerFactory.getLogger(NormalPlaceOrderService.class);
-    @Resource
+    @Autowired
     private FlashOrderDomainService flashOrderDomainService;
-    @Resource
+    @Autowired
     private StockDeductionDomainService stockDeductionDomainService;
-    @Resource
+    @Autowired
     private FlashActivityAppService flashActivityAppService;
-    @Resource
+    @Autowired
     private ItemStockCacheService itemStockCacheService;
-    @Resource
+    @Autowired
     private OrderNoGenerateService orderNoGenerateService;
-    @Resource
+    @Autowired
     private FlashItemAppService flashItemAppService;
 
     @PostConstruct

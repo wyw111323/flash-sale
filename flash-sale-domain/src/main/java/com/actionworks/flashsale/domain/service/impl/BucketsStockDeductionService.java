@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static com.actionworks.flashsale.domain.exception.DomainErrorCode.PARAMS_INVALID;
 
@@ -19,7 +19,7 @@ import static com.actionworks.flashsale.domain.exception.DomainErrorCode.PARAMS_
 public class BucketsStockDeductionService implements StockDeductionDomainService {
     private static final Logger logger = LoggerFactory.getLogger(BucketsStockDeductionService.class);
 
-    @Resource
+    @Autowired
     private BucketsRepository bucketsRepository;
 
     @Override

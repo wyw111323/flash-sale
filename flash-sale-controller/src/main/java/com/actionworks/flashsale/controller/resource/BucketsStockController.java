@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
 @ConditionalOnProperty(name = "place_order_type", havingValue = "buckets", matchIfMissing = true)
 public class BucketsStockController {
 
-    @Resource
+    @Autowired
     private BucketsAPPService bucketsAPPService;
 
     @PostMapping(value = "/items/{itemId}/buckets")

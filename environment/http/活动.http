@@ -1,0 +1,32 @@
+### 发布新的活动
+GET http://localhost:8090/api/items/2/buckets?token=eyJleHBpcmVEYXRlIjoiMjAyMS0xMi0wNCAxNzo1Nzo1NCIsInVzZXJJZCI6MTAwMX0=
+
+### 编辑指定活动
+PUT http://localhost:8090/api/flash-activities/1?token=eyJleHBpcmVEYXRlIjoiMjAyMS0xMi0wNCAxNzo1Nzo1NCIsInVzZXJJZCI6MTAwMX0=
+Content-Type: application/json;charset=UTF-8
+
+{
+    "activityName": "示例活动",
+    "activityDesc": "国庆节活动描述。。。",
+    "startTime": "2022-09-07 20:54:11",
+    "endTime": "2022-12-09 20:54:21"
+}
+
+### 上线活动
+PUT http://localhost:8090/api/flash-activities/2/online?token=eyJleHBpcmVEYXRlIjoiMjAyMS0xMi0wNCAxNzo1Nzo1NCIsInVzZXJJZCI6MTAwMX0=
+Content-Type: application/json;charset=UTF-8
+
+### 下线活动
+PUT http://localhost:8090/api/flash-activities/2/offline?token=eyJleHBpcmVEYXRlIjoiMjAyMS0xMi0wNCAxNzo1Nzo1NCIsInVzZXJJZCI6MTAwMX0=
+Content-Type: application/json;charset=UTF-8
+
+### 获取所有活动
+GET http://localhost:8090/api/flash-activities?token=eyJleHBpcmVEYXRlIjoiMjAyMS0xMi0wNCAxNzo1Nzo1NCIsInVzZXJJZCI6MTAwMX0=&pageSize=10&pageNumber=1
+Content-Type: application/json;charset=UTF-8
+
+### 根据ID获取指定活动
+GET http://localhost:8090/api/flash-activities/2?token=eyJleHBpcmVEYXRlIjoiMjAyMS0xMi0wNCAxNzo1Nzo1NCIsInVzZXJJZCI6MTAwMX0=
+Content-Type: application/json;charset=UTF-8
+
+### 获取已上线的活动
+GET http://localhost:8090/api/flash-activities/online?token=eyJleHBpcmVEYXRlIjoiMjAyMS0xMi0wNCAxNzo1Nzo1NCIsInVzZXJJZCI6MTAwMX0=&pageSize=10&pageNumber=1

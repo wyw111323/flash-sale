@@ -17,10 +17,11 @@ import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -33,6 +34,7 @@ import static com.actionworks.flashsale.util.StringUtil.link;
 
 @Service
 @ConditionalOnProperty(name = "place_order_type", havingValue = "buckets", matchIfMissing = true)
+@Primary
 public class BucketsCacheService implements ItemStockCacheService {
 
     private static final Logger logger = LoggerFactory.getLogger(BucketsCacheService.class);
@@ -96,13 +98,13 @@ public class BucketsCacheService implements ItemStockCacheService {
                 "return -10000;";
     }
 
-    @Resource
+    @Autowired
     private RedisCacheService redisCacheService;
-    @Resource
+    @Autowired
     private BucketsDomainService bucketsDomainService;
-    @Resource
+    @Autowired
     private DistributedLockFactoryService distributedLockFactoryService;
-    @Resource
+    @Autowired
     private DistributedCacheService distributedCacheService;
 
     public static String getItemStockBucketsQuantityCacheKey(Long itemId) {

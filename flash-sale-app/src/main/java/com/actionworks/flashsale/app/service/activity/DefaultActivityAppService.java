@@ -25,7 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -46,17 +46,17 @@ public class DefaultActivityAppService implements FlashActivityAppService {
     public static final String ACTIVITY_CREATE_LOCK = "ACTIVITY_LOCK";
     public static final String ACTIVITY_MODIFICATION_LOCK = "ACTIVITY_MODIFICATION_LOCK";
 
-    @Resource
+    @Autowired
     private FlashActivityDomainService flashActivityDomainService;
 
-    @Resource
+    @Autowired
     private AuthorizationService authorizationService;
 
-    @Resource
+    @Autowired
     private FlashActivityCacheService flashActivityCacheService;
-    @Resource
+    @Autowired
     private FlashActivitiesCacheService flashActivitiesCacheService;
-    @Resource
+    @Autowired
     private DistributedLockFactoryService lockFactoryService;
 
     @Override
@@ -210,24 +210,24 @@ public class DefaultActivityAppService implements FlashActivityAppService {
 
     @Override
     public boolean isAllowPlaceOrderOrNot(Long activityId) {
-        FlashActivityCache flashActivityCache = flashActivityCacheService.getCachedActivity(activityId, null);
-        if (flashActivityCache.isLater()) {
-            logger.info("isAllowPlaceOrderOrNot|稍后再试|{}", activityId);
-            return false;
-        }
-        if (!flashActivityCache.isExist() || flashActivityCache.getFlashActivity() == null) {
-            logger.info("isAllowPlaceOrderOrNot|活动不存在|{}", activityId);
-            return false;
-        }
-        FlashActivity flashActivity = flashActivityCache.getFlashActivity();
-        if (!flashActivity.isOnline()) {
-            logger.info("isAllowPlaceOrderOrNot|活动尚未上线|{}", activityId);
-            return false;
-        }
-        if (!flashActivity.isInProgress()) {
-            logger.info("isAllowPlaceOrderOrNot|活动非秒杀时段|{}", activityId);
-            return false;
-        }
+//        FlashActivityCache flashActivityCache = flashActivityCacheService.getCachedActivity(activityId, null);
+//        if (flashActivityCache.isLater()) {
+//            logger.info("isAllowPlaceOrderOrNot|稍后再试|{}", activityId);
+//            return false;
+//        }
+//        if (!flashActivityCache.isExist() || flashActivityCache.getFlashActivity() == null) {
+//            logger.info("isAllowPlaceOrderOrNot|活动不存在|{}", activityId);
+//            return false;
+//        }
+//        FlashActivity flashActivity = flashActivityCache.getFlashActivity();
+//        if (!flashActivity.isOnline()) {
+//            logger.info("isAllowPlaceOrderOrNot|活动尚未上线|{}", activityId);
+//            return false;
+//        }
+//        if (!flashActivity.isInProgress()) {
+//            logger.info("isAllowPlaceOrderOrNot|活动非秒杀时段|{}", activityId);
+//            return false;
+//        }
         // 可在此处丰富其他校验规则
         return true;
     }

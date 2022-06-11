@@ -20,7 +20,7 @@ import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -37,15 +37,15 @@ import static java.util.stream.Collectors.toList;
 public class DefaultBucketsArrangementService implements BucketsArrangementService {
     private static final Logger logger = LoggerFactory.getLogger(DefaultBucketsArrangementService.class);
 
-    @Resource
+    @Autowired
     protected BucketsDomainService bucketsDomainService;
-    @Resource
+    @Autowired
     private DistributedLockFactoryService lockFactoryService;
-    @Resource
+    @Autowired
     private DistributedCacheService distributedCacheService;
-    @Resource
+    @Autowired
     private DataSourceTransactionManager dataSourceTransactionManager;
-    @Resource
+    @Autowired
     private TransactionDefinition transactionDefinition;
 
     @Transactional

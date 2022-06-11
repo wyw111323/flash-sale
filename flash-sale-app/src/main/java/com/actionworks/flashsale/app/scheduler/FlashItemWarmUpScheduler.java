@@ -11,16 +11,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 public class FlashItemWarmUpScheduler {
     private static final Logger logger = LoggerFactory.getLogger(FlashItemWarmUpScheduler.class);
 
-    @Resource
+    @Autowired
     private ItemStockCacheService itemStockCacheService;
 
-    @Resource
+    @Autowired
     private FlashItemDomainService flashItemDomainService;
 
     @Scheduled(cron = "*/5 * * * * ?")
@@ -33,12 +33,12 @@ public class FlashItemWarmUpScheduler {
         pageResult.getData().forEach(flashItem -> {
             boolean initSuccess = itemStockCacheService.alignItemStocks(flashItem.getId());
             if (!initSuccess) {
-                logger.info("warmUpFlashItemTask|秒杀品库存已经初始化预热失败", flashItem.getId());
+                logger.info("warmUpFlashItemTask|秒杀品库存已经初始化预热失败{}", flashItem.getId());
                 return;
             }
             flashItem.setStockWarmUp(1);
             flashItemDomainService.publishFlashItem(flashItem);
-            logger.info("warmUpFlashItemTask|秒杀品库存已经初始化预热成功", flashItem.getId());
+            logger.info("warmUpFlashItemTask|秒杀品库存已经初始化预热成功{}", flashItem.getId());
         });
     }
 }

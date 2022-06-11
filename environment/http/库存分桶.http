@@ -1,0 +1,13 @@
+### 根据秒杀品获取分桶库存
+GET http://localhost:8090/api/items/2/buckets?token=eyJleHBpcmVEYXRlIjoiMjAyMS0xMi0wNCAxNzo1Nzo1NCIsInVzZXJJZCI6MTAwMX0=
+Content-Type: application/json;charset=UTF-8
+
+### 编排分桶库存
+POST http://localhost:8090/api/items/2/buckets?token=eyJleHBpcmVEYXRlIjoiMjAyMS0xMi0wNCAxNzo1Nzo1NCIsInVzZXJJZCI6MTAwMX0=
+Content-Type: application/json;charset=UTF-8
+
+{
+  "totalStocksAmount": 23,
+  "bucketsQuantity":10,
+  "arrangementMode":1
+}

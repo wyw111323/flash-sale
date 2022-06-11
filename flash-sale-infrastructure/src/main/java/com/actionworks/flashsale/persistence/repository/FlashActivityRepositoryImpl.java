@@ -8,14 +8,14 @@ import com.actionworks.flashsale.persistence.mapper.FlashActivityMapper;
 import com.actionworks.flashsale.persistence.model.FlashActivityDO;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
 public class FlashActivityRepositoryImpl implements FlashActivityRepository {
-    @Resource
+    @Autowired
     private FlashActivityMapper flashActivityMapper;
 
     @Override

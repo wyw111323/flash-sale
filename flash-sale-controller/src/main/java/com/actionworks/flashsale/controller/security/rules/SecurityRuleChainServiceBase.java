@@ -9,17 +9,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import javax.servlet.http.HttpServletRequest;
 
 public abstract class SecurityRuleChainServiceBase {
     private static final Logger logger = LoggerFactory.getLogger(SecurityRuleChainServiceBase.class);
 
-    @Resource
+    @Autowired
     protected SlidingWindowLimitService slidingWindowLimitService;
-    @Resource
+    @Autowired
     protected AuthorizationService authorizationService;
-    @Resource
+    @Autowired
     protected SecurityRulesConfigurationComponent securityRulesConfigurationComponent;
 
     @PostConstruct

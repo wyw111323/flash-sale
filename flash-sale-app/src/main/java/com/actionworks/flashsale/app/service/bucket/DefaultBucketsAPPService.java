@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.concurrent.TimeUnit;
 
 import static com.actionworks.flashsale.app.exception.AppErrorCode.ARRANGE_STOCK_BUCKETS_FAILED;
@@ -31,13 +31,13 @@ public class DefaultBucketsAPPService implements BucketsAPPService {
     private static final Logger logger = LoggerFactory.getLogger(DefaultBucketsAPPService.class);
     private static final String STOCK_BUCKET_ARRANGEMENT_KEY = "STOCK_BUCKET_ARRANGEMENT_KEY";
 
-    @Resource
+    @Autowired
     private FlashItemDomainService flashItemDomainService;
 
-    @Resource
+    @Autowired
     private DistributedLockFactoryService lockFactoryService;
 
-    @Resource
+    @Autowired
     private BucketsArrangementService bucketsArrangementService;
 
     @Override

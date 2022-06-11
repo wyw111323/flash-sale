@@ -8,14 +8,14 @@ import com.actionworks.flashsale.persistence.mapper.FlashItemMapper;
 import com.actionworks.flashsale.persistence.model.FlashItemDO;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
 public class FlashItemRepositoryImpl implements FlashItemRepository {
-    @Resource
+    @Autowired
     private FlashItemMapper flashItemMapper;
 
     @Override

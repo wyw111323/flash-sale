@@ -11,7 +11,7 @@ import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @EventHandler
 public class FlashItemEventHandler implements EventHandlerI<Response, FlashItemEvent> {
@@ -19,9 +19,9 @@ public class FlashItemEventHandler implements EventHandlerI<Response, FlashItemE
     private final Logger logger = LoggerFactory.getLogger(FlashItemEventHandler.class);
 
 
-    @Resource
+    @Autowired
     private FlashItemCacheService flashItemCacheService;
-    @Resource
+    @Autowired
     private FlashItemsCacheService flashItemsCacheService;
 
     @Override

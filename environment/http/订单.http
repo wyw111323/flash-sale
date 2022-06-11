@@ -1,0 +1,22 @@
+### 下单
+POST http://localhost:8090/api/flash-orders?token=eyJleHBpcmVEYXRlIjoiMjAyMS0xMi0wNCAxNzo1Nzo1NCIsInVzZXJJZCI6MTAwMX0=
+Content-Type: application/json;charset=UTF-8
+
+{
+  "itemId": 2,
+  "activityId": 2,
+  "quantity": 1,
+  "totalAmount": 200
+}
+
+### 取消订单
+PUT http://localhost:8090/api/flash-orders/1/cancel?token=eyJleHBpcmVEYXRlIjoiMjAyMS0xMi0wNCAxNzo1Nzo1NCIsInVzZXJJZCI6MTAwMX0=
+Content-Type:application/json
+
+### 我的订单
+GET http://localhost:8090/api/flash-orders/my?token=eyJleHBpcmVEYXRlIjoiMjAyMS0xMi0wNCAxNzo1Nzo1NCIsInVzZXJJZCI6MTAwMX0=&pageSize=10&pageNumber=1
+Content-Type: application/json;charset=UTF-8
+
+### 获取已提交订单的状态
+GET http://localhost:8090/api/items/14/flash-orders/1ad648571b920156266b9b6ba56229f6?token=eyJleHBpcmVEYXRlIjoiMjAyMS0xMi0wNCAxNzo1Nzo1NCIsInVzZXJJZCI6MTAwMX0=
+Content-Type: application/json;charset=UTF-8

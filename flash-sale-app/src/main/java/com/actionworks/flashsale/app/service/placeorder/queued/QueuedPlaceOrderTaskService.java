@@ -19,7 +19,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -60,13 +60,13 @@ public class QueuedPlaceOrderTaskService implements PlaceOrderTaskService {
                 "return -100;";
     }
 
-    @Resource
+    @Autowired
     private RedisCacheService redisCacheService;
-    @Resource
+    @Autowired
     private ItemStockCacheService itemStockCacheService;
-    @Resource
+    @Autowired
     private OrderTaskPostService orderTaskPostService;
-    @Resource
+    @Autowired
     private DistributedLockFactoryService lockFactoryService;
 
     @Override

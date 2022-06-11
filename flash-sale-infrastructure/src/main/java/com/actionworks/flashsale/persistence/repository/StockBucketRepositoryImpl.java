@@ -8,7 +8,7 @@ import com.actionworks.flashsale.persistence.model.BucketDO;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +16,7 @@ import static java.util.stream.Collectors.toList;
 
 @Component
 public class StockBucketRepositoryImpl implements BucketsRepository {
-    @Resource
+    @Autowired
     private BucketMapper bucketMapper;
 
     @Override

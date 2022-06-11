@@ -5,7 +5,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @Component
 public class SecurityRulesInterceptor implements HandlerInterceptor {
 
-    @Resource
+    @Autowired
     private List<SecurityRuleChainService> securityRuleChainServices;
 
     private List<SecurityRuleChainService> getSecurityRuleChainServices() {

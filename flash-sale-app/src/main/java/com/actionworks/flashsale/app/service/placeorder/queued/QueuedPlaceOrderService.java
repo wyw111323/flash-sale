@@ -31,7 +31,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static com.actionworks.flashsale.app.exception.AppErrorCode.GET_ITEM_FAILED;
 import static com.actionworks.flashsale.app.exception.AppErrorCode.INVALID_PARAMS;
@@ -46,23 +46,23 @@ import static com.actionworks.flashsale.app.model.constants.CacheConstants.HOURS
 public class QueuedPlaceOrderService implements PlaceOrderService {
     private static final String PLACE_ORDER_TASK_ORDER_ID_KEY = "PLACE_ORDER_TASK_ORDER_ID_KEY_";
     private static final Logger logger = LoggerFactory.getLogger(QueuedPlaceOrderService.class);
-    @Resource
+    @Autowired
     private FlashItemAppService flashItemAppService;
-    @Resource
+    @Autowired
     private OrderTaskIdGenerateService orderTaskIdGenerateService;
-    @Resource
+    @Autowired
     private PlaceOrderTaskService placeOrderTaskService;
-    @Resource
+    @Autowired
     private FlashOrderDomainService flashOrderDomainService;
-    @Resource
+    @Autowired
     private FlashItemDomainService flashItemDomainService;
-    @Resource
+    @Autowired
     private FlashActivityAppService flashActivityAppService;
-    @Resource
+    @Autowired
     private StockDeductionDomainService stockDeductionDomainService;
-    @Resource
+    @Autowired
     private OrderNoGenerateService orderNoGenerateService;
-    @Resource
+    @Autowired
     private RedisCacheService redisCacheService;
 
     @PostConstruct

@@ -15,7 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,10 +27,10 @@ import static com.actionworks.flashsale.domain.exception.DomainErrorCode.PARAMS_
 public class FlashItemDomainServiceImpl implements FlashItemDomainService {
     private static final Logger logger = LoggerFactory.getLogger(FlashItemDomainServiceImpl.class);
 
-    @Resource
+    @Autowired
     private FlashItemRepository flashItemRepository;
 
-    @Resource
+    @Autowired
     private DomainEventPublisher domainEventPublisher;
 
     @Override

@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Conditional;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -76,11 +76,11 @@ public class NormalStockCacheService implements ItemStockCacheService {
                 "return -1;";
     }
 
-    @Resource
+    @Autowired
     private RedisCacheService redisCacheService;
-    @Resource
+    @Autowired
     private FlashItemDomainService flashItemDomainService;
-    @Resource
+    @Autowired
     private DistributedCacheService distributedCacheService;
 
     @Override

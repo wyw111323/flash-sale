@@ -12,16 +12,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 public class StocksAlignScheduler {
     private static final Logger logger = LoggerFactory.getLogger(StocksAlignScheduler.class);
 
-    @Resource
+    @Autowired
     private ItemStockCacheService itemStockCacheService;
 
-    @Resource
+    @Autowired
     private FlashItemDomainService flashItemDomainService;
 
     @Scheduled(cron = "*/2 * * * * ?")

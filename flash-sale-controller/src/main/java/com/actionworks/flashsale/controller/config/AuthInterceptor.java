@@ -5,7 +5,7 @@ import com.actionworks.flashsale.app.auth.model.AuthResult;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AuthInterceptor implements HandlerInterceptor {
     private static final String USER_ID = "userId";
 
-    @Resource
+    @Autowired
     private AuthorizationService authorizationService;
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {

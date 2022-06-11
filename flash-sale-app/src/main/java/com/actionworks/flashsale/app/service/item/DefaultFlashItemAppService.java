@@ -29,7 +29,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -50,22 +50,22 @@ import static com.actionworks.flashsale.util.StringUtil.link;
 public class DefaultFlashItemAppService implements FlashItemAppService {
     private static final Logger logger = LoggerFactory.getLogger(DefaultFlashItemAppService.class);
 
-    @Resource
+    @Autowired
     private FlashItemDomainService flashItemDomainService;
 
-    @Resource
+    @Autowired
     private FlashActivityDomainService flashActivityDomainService;
 
-    @Resource
+    @Autowired
     private AuthorizationService authorizationService;
 
-    @Resource
+    @Autowired
     private FlashItemCacheService flashItemCacheService;
-    @Resource
+    @Autowired
     private FlashItemsCacheService flashItemsCacheService;
-    @Resource
+    @Autowired
     private ItemStockCacheService itemStockCacheService;
-    @Resource
+    @Autowired
     private DistributedLockFactoryService lockFactoryService;
 
     @Override
@@ -216,22 +216,22 @@ public class DefaultFlashItemAppService implements FlashItemAppService {
     @Override
     public boolean isAllowPlaceOrderOrNot(Long itemId) {
         FlashItemCache flashItemCache = flashItemCacheService.getCachedItem(itemId, null);
-        if (!flashItemCache.isLater()) {
-            logger.info("isAllowPlaceOrderOrNot|稍后再试|{}", itemId);
-            return false;
-        }
-        if (!flashItemCache.isExist() || flashItemCache.getFlashItem() == null) {
-            logger.info("isAllowPlaceOrderOrNot|秒杀品不存在|{}", itemId);
-            return false;
-        }
-        if (!flashItemCache.getFlashItem().isOnline()) {
-            logger.info("isAllowPlaceOrderOrNot|秒杀品尚未上线|{}", itemId);
-            return false;
-        }
-        if (!flashItemCache.getFlashItem().isInProgress()) {
-            logger.info("isAllowPlaceOrderOrNot|当前非秒杀时段|{}", itemId);
-            return false;
-        }
+//        if (!flashItemCache.isLater()) {
+//            logger.info("isAllowPlaceOrderOrNot|稍后再试|{}", itemId);
+//            return false;
+//        }
+//        if (!flashItemCache.isExist() || flashItemCache.getFlashItem() == null) {
+//            logger.info("isAllowPlaceOrderOrNot|秒杀品不存在|{}", itemId);
+//            return false;
+//        }
+//        if (!flashItemCache.getFlashItem().isOnline()) {
+//            logger.info("isAllowPlaceOrderOrNot|秒杀品尚未上线|{}", itemId);
+//            return false;
+//        }
+//        if (!flashItemCache.getFlashItem().isInProgress()) {
+//            logger.info("isAllowPlaceOrderOrNot|当前非秒杀时段|{}", itemId);
+//            return false;
+//        }
         // 可在此处丰富其他校验规则
 
         return true;

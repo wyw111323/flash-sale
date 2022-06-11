@@ -13,10 +13,10 @@ import com.actionworks.flashsale.domain.service.FlashOrderDomainService;
 import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,9 +27,9 @@ import static com.actionworks.flashsale.domain.exception.DomainErrorCode.PARAMS_
 public class FlashOrderDomainServiceImpl implements FlashOrderDomainService {
     private static final Logger logger = LoggerFactory.getLogger(FlashOrderDomainServiceImpl.class);
 
-    @Resource
+    @Autowired
     private FlashOrderRepository flashOrderRepository;
-    @Resource
+    @Autowired
     private DomainEventPublisher domainEventPublisher;
 
     @Override

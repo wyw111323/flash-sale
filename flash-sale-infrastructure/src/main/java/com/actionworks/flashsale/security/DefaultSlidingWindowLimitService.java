@@ -3,13 +3,13 @@ package com.actionworks.flashsale.security;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.concurrent.TimeUnit;
 
 @Component
 public class DefaultSlidingWindowLimitService implements SlidingWindowLimitService {
 
-    @Resource
+    @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
     @Override

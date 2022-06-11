@@ -16,7 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -31,13 +31,13 @@ public class FlashItemsCacheService {
     private static final String UPDATE_ITEMS_CACHE_LOCK_KEY = "UPDATE_ITEMS_CACHE_LOCK_KEY_";
     private final Lock localCacleUpdatelock = new ReentrantLock();
 
-    @Resource
+    @Autowired
     private DistributedCacheService distributedCacheService;
 
-    @Resource
+    @Autowired
     private FlashItemDomainService flashItemDomainService;
 
-    @Resource
+    @Autowired
     private DistributedLockFactoryService distributedLockFactoryService;
 
     public FlashItemsCache getCachedItems(Long activityId, Long version) {

@@ -1,0 +1,32 @@
+### 获取指定活动的秒杀品
+GET http://localhost:8090/api/activities/2/flash-items?token=eyJleHBpcmVEYXRlIjoiMjAyMS0xMi0wNCAxNzo1Nzo1NCIsInVzZXJJZCI6MTAwMX0=&pageSize=10&pageNumber=1
+
+### 获取指定活动的已上线秒杀品
+GET http://localhost:8090/api/activities/1/flash-items/online?token=eyJleHBpcmVEYXRlIjoiMjAyMS0xMi0wNCAxNzo1Nzo1NCIsInVzZXJJZCI6MTAwMX0=&pageSize=10&pageNumber=1
+
+### 根据ID获取秒杀品
+GET http://localhost:8090/api/activities/2/flash-items/3?token=eyJleHBpcmVEYXRlIjoiMjAyMS0xMi0wNCAxNzo1Nzo1NCIsInVzZXJJZCI6MTAwMX0=
+
+### 发布秒杀品
+POST localhost:8090/api/activities/2/flash-items?token=eyJleHBpcmVEYXRlIjoiMjAyMS0xMi0wNCAxNzo1Nzo1NCIsInVzZXJJZCI6MTAwMX0=
+Content-Type: application/json;charset=UTF-8
+
+{
+    "itemTitle": "秒杀品{{currentTime}}",
+    "itemSubTitle": "秒杀品测试-1",
+    "itemDesc": "秒杀品描述-2",
+    "initialStock": 23,
+    "availableStock":23,
+    "originalPrice":120000,
+    "flashPrice":99900,
+    "startTime": "2021-09-07 20:54:11",
+    "endTime": "2022-12-09 20:54:21"
+}
+
+### 上线秒杀品
+PUT http://localhost:8090/api/activities/1/flash-items/2/online?token=eyJleHBpcmVEYXRlIjoiMjAyMS0xMi0wNCAxNzo1Nzo1NCIsInVzZXJJZCI6MTAwMX0=
+Content-Type:application/json
+
+### 下线秒杀品
+PUT http://localhost:8090/api/activities/1/flash-items/2/offline?token=eyJleHBpcmVEYXRlIjoiMjAyMS0xMi0wNCAxNzo1Nzo1NCIsInVzZXJJZCI6MTAwMX0=
+Content-Type:application/json

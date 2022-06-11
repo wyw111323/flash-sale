@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static com.actionworks.flashsale.controller.model.builder.FlashActivityBuilder.toFlashActivitiesResponse;
 import static com.actionworks.flashsale.controller.model.builder.FlashActivityBuilder.toFlashActivityResponse;
@@ -33,7 +33,7 @@ import static com.actionworks.flashsale.controller.model.builder.FlashActivityBu
 @RestController
 public class FlashActivityController {
 
-    @Resource
+    @Autowired
     private FlashActivityAppService flashActivityAppService;
 
     @PostMapping(value = "/flash-activities")

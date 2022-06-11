@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 @RocketMQMessageListener(topic = "PLACE_ORDER_TASK_TOPIC", consumerGroup = "PLACE_ORDER_TASK_TOPIC_CONSUMER_GROUP")
@@ -19,7 +19,7 @@ import javax.annotation.Resource;
 public class RocketMQOrderTaskConsumerService implements RocketMQListener<String> {
     private static final Logger logger = LoggerFactory.getLogger(RocketMQOrderTaskConsumerService.class);
 
-    @Resource
+    @Autowired
     private QueuedPlaceOrderService queuedPlaceOrderService;
 
     @Override

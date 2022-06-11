@@ -4,7 +4,7 @@ import com.alibaba.cola.event.DomainEventI;
 import com.alibaba.cola.event.EventBusI;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * 发布领域事件，一般基于独立的消息中间件系统发布；
@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 @Component
 public class LocalDomainEventPublisher implements DomainEventPublisher {
 
-    @Resource
+    @Autowired
     private EventBusI eventBus;
 
     @Override

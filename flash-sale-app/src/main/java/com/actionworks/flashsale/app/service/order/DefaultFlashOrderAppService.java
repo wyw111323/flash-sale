@@ -28,7 +28,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -47,17 +47,17 @@ public class DefaultFlashOrderAppService implements FlashOrderAppService {
     private static final Logger logger = LoggerFactory.getLogger(DefaultFlashOrderAppService.class);
     private static final String PLACE_ORDER_LOCK_KEY = "PLACE_ORDER_LOCK_KEY";
 
-    @Resource
+    @Autowired
     private FlashOrderDomainService flashOrderDomainService;
-    @Resource
+    @Autowired
     private StockDeductionDomainService stockDeductionDomainService;
-    @Resource
+    @Autowired
     private ItemStockCacheService itemStockCacheService;
-    @Resource
+    @Autowired
     private DistributedLockFactoryService lockFactoryService;
-    @Resource
+    @Autowired
     private SecurityService securityService;
-    @Resource
+    @Autowired
     private PlaceOrderService placeOrderService;
 
     @Override

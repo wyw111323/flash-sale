@@ -9,7 +9,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.concurrent.Executor;
 
 @RefreshScope
@@ -17,7 +17,7 @@ import java.util.concurrent.Executor;
 public class SecurityRulesConfigurationComponent implements InitializingBean {
     private static final Logger logger = LoggerFactory.getLogger(SecurityRulesConfigurationComponent.class);
 
-    @Resource
+    @Autowired
     private NacosConfigManager nacosConfigManager;
 
     private SecurityRulesConfiguration securityRulesConfiguration;

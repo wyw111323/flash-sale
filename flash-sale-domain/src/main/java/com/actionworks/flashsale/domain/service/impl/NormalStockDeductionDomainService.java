@@ -7,14 +7,14 @@ import com.actionworks.flashsale.domain.service.StockDeductionDomainService;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static com.actionworks.flashsale.domain.exception.DomainErrorCode.PARAMS_INVALID;
 
 @Service
 @ConditionalOnProperty(name = "place_order_type", havingValue = "normal", matchIfMissing = true)
 public class NormalStockDeductionDomainService implements StockDeductionDomainService {
-    @Resource
+    @Autowired
     private FlashItemRepository flashItemRepository;
 
     @Override

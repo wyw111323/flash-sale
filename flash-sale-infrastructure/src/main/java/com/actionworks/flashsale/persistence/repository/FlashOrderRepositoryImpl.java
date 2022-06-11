@@ -8,14 +8,14 @@ import com.actionworks.flashsale.persistence.mapper.FlashOrderMapper;
 import com.actionworks.flashsale.persistence.model.FlashOrderDO;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
 public class FlashOrderRepositoryImpl implements FlashOrderRepository {
-    @Resource
+    @Autowired
     private FlashOrderMapper flashOrderMapper;
 
     @Override
