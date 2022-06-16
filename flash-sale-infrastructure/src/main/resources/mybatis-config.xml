@@ -7,6 +7,7 @@
     <!-- 开启驼峰映射 ，否则查询结果不能转成resultType-->
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
     <typeAliases>
 
